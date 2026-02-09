@@ -14,7 +14,7 @@ class Handler{
     public:
         static int print_and_get_choices(){
             // To DO
-            cout << "please choose one of the following options:" << endl;
+            cout << "Please choose one of the following options:" << endl;
             cout << "(1) Add" << endl;
             cout << "(2) Subtract" << endl;
             cout << "(3) Multiply" << endl;
