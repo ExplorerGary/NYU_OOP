@@ -86,10 +86,12 @@ class Handler{
             float imag = 0.0f;
 
             // check if we have imaginary part
+            // be aware: size_t is an unsigned int type, and it's the dedicated type for indexing in C++
+
             size_t i_pos = s.find('i');
 
             // when there is no imaginary part
-            if (i_pos == string::npos) {
+            if (i_pos == string::npos) { // string::npos means we do not found the character, it's a special constant
                 real = stof(s);
                 return Complex(real, 0.0f);
             }
@@ -106,7 +108,7 @@ class Handler{
                 // no real part
                 real = 0.0f;
             } else {
-                string real_part = s.substr(0, sign_pos);
+                string real_part = s.substr(0, sign_pos); 
                 if (!real_part.empty())
                     real = stof(real_part);
             }
@@ -114,7 +116,7 @@ class Handler{
             // imaginary part extraction
             string imag_part = s.substr(i_pos + 1);
 
-            if (imag_part.empty())
+            if (imag_part.empty()) // if there the imag_part is empty, then there is no number after 'i', it means the imaginary part is 1
                 imag = 1.0f;
             else
                 imag = stof(imag_part);
